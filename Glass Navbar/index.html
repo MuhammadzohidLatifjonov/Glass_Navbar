@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>JavaScript Navbar</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="bootstrap-icons\bootstrap-icons.css">
+</head>
+
+<body>
+	<ul>
+		<li><a href="#"><i class="bi bi-house-door"></i></a></li>
+		<li><a href="#"><i class="bi bi-person"></i></a></li>
+		<li><a href="#"><i class="bi bi-x-circle"></i></a></li>
+		<li><a href="#"><i class="bi bi-gear"></i></a></li>
+		<li><a href="#"><i class="bi bi-chat"></i></a></li>
+		<div id="marker"></div>
+	</ul>
+
+
+
+
+
+
+	<script>
+		let marker = document.querySelector('#marker');
+		let list = document.querySelectorAll('ul li');
+
+		function moveIndicator(e) {
+			marker.style.left = e.offsetLeft + 'px';
+			marker.style.width = e.offsetWidth + 'px';
+		}
+
+		list.forEach(link => {
+			link.addEventListener('mousemove', (e) => {
+				moveIndicator(e.target);
+			})
+		})
+
+		function activeLink() {
+			list.forEach((item) =>
+				item.classList.remove('active'));
+			this.classList.add('active');
+		}
+
+		list.forEach((item) =>
+			item.addEventListener('mousemove', activeLink));
+	</script>
+
+</body>
+
+</html>
